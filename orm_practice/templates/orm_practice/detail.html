@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+Detail page
+{% endblock title %}
+{% block body %}
+  <h1> this is deatil page</h1>
+  <h2> {{ student.name}} </h2>
+  <h3> {{ student.age }}|{{ student.major }} </h3>
+  <p> {{ stuent.intro }}</p>
+
+  <a href="{% url 'index' %}" class="btn btn-primary"> 목록으로 가기 </a>
+{% endblock body %}
