@@ -6,7 +6,13 @@ Detail page
   <h1> this is deatil page</h1>
   <h2> {{ student.name}} </h2>
   <h3> {{ student.age }}|{{ student.major }} </h3>
-  <p> {{ stuent.intro }}</p>
+  <p> {{ student.intro }}</p>
 
   <a href="{% url 'index' %}" class="btn btn-primary"> 목록으로 가기 </a>
+  <a href="{% url 'edit' student.pk %}" class="btn btn-secondary" > 수정하기 </a>
+  <form action="{% url 'delete' student.pk %}" method="POST" style="display: inline-block">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')" value="delete">
+  </form>
+{% comment %} POST 는 폼테그에서만 가능하다 {% endcomment %}
 {% endblock body %}
